@@ -1,0 +1,481 @@
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:realestateapi/model/user.dart';
+
+class Property {
+  final int id;
+  final String title;
+  final String property_address;
+  final String slug;
+  final String image;
+  final String city;
+  final int bedrooms;
+  final int bathrooms;
+  User? user;
+  String? description;
+  final String type;
+  final int amount;
+  List<ImageGallery>? images;
+
+  Property(
+      {required this.id,
+      required this.title,
+      required this.slug,
+      required this.city,
+      required this.image,
+      required this.type,
+      this.description,
+      this.user,
+      required this.bedrooms,
+      required this.bathrooms,
+      required this.property_address,
+      required this.amount,
+      this.images});
+
+  factory Property.fromJson(Map<String, dynamic> json) {
+    return Property(
+      id: json['id'],
+      title: json['title'],
+      slug: json['slug'],
+      description: json['description'],
+      city: json['city'],
+      image: json['image'],
+      type: json['type'],
+      user: json['user'],
+      bedrooms: json['bedrooms'],
+      bathrooms: json['bathrooms'],
+      property_address: json['property_address'],
+      amount: json['amount'],
+      images: json['images'],
+    );
+  }
+
+  static List<Property> buyProperties() {
+    return [
+      Property(
+        id: 1,
+        title: '4 Bedroom Detached Duplex',
+        slug: '4-bedroom-detached-duplex',
+        description: 'This is lovely Property',
+        city: 'FCT',
+        image: 'assets/images/house4.jpg',
+        type: 'For Sale',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house.jpg'),
+          ImageGallery('assets/images/house3.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+        ],
+        user: User(
+          'John',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 600000000,
+      ),
+      Property(
+        id: 2,
+        title: '3 Bedroom Semi Detached',
+        description:
+            'This lovely apartment is located in a very serene environment in the heart of FCT, Abuja',
+        slug: '3-bedroom-detached-duplex',
+        city: 'FCT',
+        image: 'assets/images/house1.jpg',
+        type: 'For Sale',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 2000000,
+      ),
+      Property(
+        id: 3,
+        title: "3 Bedroom Duplex",
+        slug: "3-bedroom-duplex",
+        city: "Wuse 2",
+        image: "assets/images/house5.jpg",
+        type: 'For Sale',
+        bedrooms: 3,
+        bathrooms: 3,
+        user: User(
+          'John Carter',
+          '+2348081234568',
+          'user4@shelterplug.com',
+          'assets/images/person7.jpg',
+        ),
+        images: [
+          ImageGallery('assets/images/house8.jpg'),
+          ImageGallery('assets/images/house9.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+        ],
+        property_address: "Road 2, House 4, 3rd Avenue",
+        amount: 800000000,
+      ),
+      Property(
+        id: 4,
+        title: "Fully furnished 4 bedrooms terrace Duplex",
+        slug: "fully-furnished-4-bedrooms-terrace-duplex",
+        city: "Lugbe, Abuja",
+        image: "assets/images/house4.jpg",
+        type: "For Sale",
+        bedrooms: 4,
+        bathrooms: 4,
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/john.jpg',
+        ),
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+        ],
+        property_address: "Utako",
+        amount: 80000000,
+      ),
+    ];
+  }
+
+  static List<Property> getAllProperties() {
+    return [
+      Property(
+        id: 1,
+        title: '4 Bedroom Detached Duplex',
+        slug: '4-bedroom-detached-duplex',
+        description: 'This is lovely Property',
+        city: 'FCT',
+        image: 'assets/images/house4.jpg',
+        type: 'For Sale',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house.jpg'),
+          ImageGallery('assets/images/house3.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 600000000,
+      ),
+      Property(
+        id: 2,
+        title: '3 Bedroom Semi Detached',
+        description:
+            'This lovely apartment is located in a very serene environment in the heart of FCT, Abuja',
+        slug: '3-bedroom-detached-duplex',
+        city: 'FCT',
+        image: 'assets/images/house1.jpg',
+        type: 'For Sale',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 2000000,
+      ),
+      Property(
+        id: 3,
+        title: "3 Bedroom Duplex",
+        slug: "3-bedroom-duplex",
+        city: "Wuse 2",
+        image: "assets/images/house5.jpg",
+        type: 'For Sale',
+        bedrooms: 3,
+        bathrooms: 3,
+        user: User(
+          'John Carter',
+          '+2348081234568',
+          'user4@shelterplug.com',
+          'assets/images/person7.jpg',
+        ),
+        images: [
+          ImageGallery('assets/images/house8.jpg'),
+          ImageGallery('assets/images/house9.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+        ],
+        property_address: "Road 2, House 4, 3rd Avenue",
+        amount: 800000000,
+      ),
+      Property(
+        id: 4,
+        title: "Fully furnished 4 bedrooms terrace Duplex",
+        slug: "fully-furnished-4-bedrooms-terrace-duplex",
+        city: "Lugbe, Abuja",
+        image: "assets/images/house4.jpg",
+        type: "For Sale",
+        bedrooms: 4,
+        bathrooms: 4,
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/john.jpg',
+        ),
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+        ],
+        property_address: "Utako",
+        amount: 80000000,
+      ),
+      Property(
+        id: 5,
+        title: "Shelter Plug House 1",
+        slug: "deniran_house",
+        city: "Gwarinpa Estate, FCT",
+        bedrooms: 3,
+        bathrooms: 3,
+        image: "assets/images/house1.jpg",
+        type: 'For Rent',
+        property_address: "Road 2, House 4, 3rd Avenue",
+        amount: 20000000,
+      ),
+      Property(
+        id: 6,
+        title: "6 unit 3 ",
+        slug: "deniran_house",
+        city: "Gwarinpa",
+        bedrooms: 3,
+        bathrooms: 3,
+        image: "assets/images/house2.jpg",
+        type: 'For Rent',
+        property_address: "Road 2, House 4, 3rd Avenue",
+        amount: 50000000,
+      ),
+      Property(
+        id: 7,
+        title: "DE-CAMPANIA",
+        slug: "deniran_house",
+        city: "Gwarinpa",
+        image: "assets/images/house3.jpg",
+        bedrooms: 3,
+        bathrooms: 3,
+        type: 'For Rent',
+        property_address: "Road 2, House 4, 3rd Avenue",
+        amount: 20000000,
+      ),
+      Property(
+        id: 8,
+        title: "3 Bedroom Duplex",
+        slug: "3-bedroom-duplex",
+        city: "Wuse 2",
+        image: "assets/images/house5.jpg",
+        type: 'For Sale',
+        bedrooms: 3,
+        bathrooms: 3,
+        property_address: "Road 2, House 4, 3rd Avenue",
+        amount: 800000000,
+      ),
+      Property(
+        id: 9,
+        title: "4 Bedroom Duplex",
+        slug: "4-bedroom-duplex",
+        city: "Wuye, FCT",
+        image: "assets/images/house6.jpg",
+        type: 'For Rent',
+        bedrooms: 4,
+        bathrooms: 3,
+        user: User('Seun Tijani', '+2349091112222', 'seuntijani@gmail.com',
+            'assets/images/person3.png'),
+        property_address: "Wuye Disctrict, FCT Abuja",
+        amount: 600000000,
+      ),
+    ];
+  }
+
+
+
+  static List<Property> getRentProperties() {
+    return [
+      Property(
+        id: 1,
+        title: '3 Bedroom Semi Detached Duplex',
+        slug: '3-bedroom-semi-detached-duplex',
+        description: 'This is lovely Property',
+        city: 'FCT',
+        image: 'assets/images/house4.jpg',
+        type: 'For Rent',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house.jpg'),
+          ImageGallery('assets/images/house3.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 600000000,
+      ),
+      Property(
+        id: 2,
+        title: '3 Bedroom Semi Detached Duplex',
+        slug: '3-bedroom-semi-detached-duplex',
+        description: 'This is lovely Property',
+        city: 'FCT',
+        image: 'assets/images/house10.jpg',
+        type: 'For Rent',
+        bedrooms: 3,
+        bathrooms: 3,
+        images: [
+          ImageGallery('assets/images/house10.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house.jpg'),
+          ImageGallery('assets/images/house3.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 60000000,
+      ),
+      Property(
+        id: 3,
+        title: '4 Bedroom Terrace Duplex',
+        slug: '4-bedroom-terrace-duplex',
+        description: 'This is lovely Property',
+        city: 'FCT',
+        image: 'assets/images/house4.jpg',
+        type: 'For Rent',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house.jpg'),
+          ImageGallery('assets/images/house3.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 600000000,
+      ),
+      Property(
+        id: 1,
+        title: '5 Bedroom Terrace Duplex',
+        slug: '5-bedroom-Terrace-duplex',
+        description: 'This is lovely Property',
+        city: 'FCT',
+        image: 'assets/images/house6.jpg',
+        type: 'For Rent',
+        bedrooms: 4,
+        bathrooms: 5,
+        images: [
+          ImageGallery('assets/images/house1.jpg'),
+          ImageGallery('assets/images/house2.jpg'),
+          ImageGallery('assets/images/house.jpg'),
+          ImageGallery('assets/images/house3.jpg'),
+          ImageGallery('assets/images/house4.jpg'),
+          ImageGallery('assets/images/house5.jpg'),
+          ImageGallery('assets/images/house6.jpg'),
+          ImageGallery('assets/images/house7.jpg'),
+        ],
+        user: User(
+          'John Carter',
+          '+2348081234567',
+          'user@shelterplug.com',
+          'assets/images/person5.png',
+        ),
+        property_address: 'Gaduwa Estate',
+        amount: 600000000,
+      ),
+      Property(
+        id: 5,
+        title: "4 Bedroom Duplex",
+        slug: "4-bedroom-duplex",
+        city: "Wuye, FCT",
+        image: "assets/images/house6.jpg",
+        type: 'For Rent',
+        bedrooms: 4,
+        bathrooms: 3,
+        user: User('Tammy Jones', '+2347075551234',
+            'tammyjones@shelterplug.com', 'assets/images/person1.jpg'),
+        property_address: "Wuye Disctrict, FCT Abuja",
+        amount: 600000000,
+      ),
+    ];
+  }
+}
+
+class ImageGallery {
+  String? imageUrl;
+
+  ImageGallery(
+    this.imageUrl,
+  );
+}
